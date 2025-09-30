@@ -43,8 +43,8 @@ module Gominohi
         end
 
         special_dates.reject! do |date|
-          # TODO: 年末年始は要確認
-          /\A(010[1-5])\z/ =~ date.strftime("%m%d")
+          # NOTE: 年末年始の未収集日は特別ゴミだけ異なる。毎年確認が必要。
+          /\A(010[1-6])\z/ =~ date.strftime("%m%d")
         end
 
         special_dates.each_slice(special_order.size) do |dates|
